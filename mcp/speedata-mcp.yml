@@ -1,0 +1,85 @@
+generated: '2026-08-28'
+method: probed
+source: https://www.speedata.io/_api/mcp
+name: Speedata Site MCP Server
+description: >-
+  A live, anonymous Model Context Protocol endpoint served on Speedata's own host
+  (www.speedata.io). It is the Wix Site MCP server, exposed automatically because
+  speedata.io is built on Wix — the tool set is PLATFORM-AUTHORED by Wix, not written
+  by Speedata, and it exposes site content and Wix business-solution APIs rather than
+  anything to do with the APU, the C200 card, or the Dash Spark plugin.
+
+deployment:
+  mode: remote
+  endpoint: https://www.speedata.io/_api/mcp
+  install: ''
+  package: ''
+  auth: none
+  verified: probed
+
+authorship: platform
+platform: Wix Site MCP
+authorship_note: >-
+  The nine tools below are byte-identical to the Wix tenant fingerprint documented in the
+  API Evangelist MCP authorship audit. Speedata authored none of them; enabling the site
+  MCP is a Wix platform default. Recorded because the endpoint is genuinely reachable on
+  the provider's own domain, not because Speedata shipped an agent surface.
+
+x-evidence:
+  fetched: '2026-08-28'
+  initialize:
+    url: https://www.speedata.io/_api/mcp
+    http_status: 200
+    protocol_version: '2025-06-18'
+    server_info: 'Site Visitor Assistant for site "Speedata" (https://www.speedata.io/_api/mcp)'
+    capabilities:
+      tools:
+        listChanged: true
+      logging: {}
+  tools_list:
+    url: https://www.speedata.io/_api/mcp
+    http_status: 200
+    method: tools/list
+    tool_count: 9
+    raw: mcp/speedata-mcp-tools.json
+  advertised_by:
+    url: https://www.speedata.io/llms.txt
+    http_status: 200
+    note: The llms.txt "AI Agent Access" section names this endpoint and the Wix MCP docs.
+
+transport: streamable-http
+status: live
+
+tools:
+- name: GetBusinessDetails
+  category: site-metadata
+  description: Business and site details — timezone, email, phone, fax, address, site name, business schedule.
+- name: SearchInSite
+  category: site-content
+  description: Free-text search across public site content.
+- name: SearchSiteApiDocs
+  category: docs
+  description: Searches Wix business-solution API documentation applicable to this site.
+- name: GenerateVisitorToken
+  category: auth
+  description: Creates an anonymous visitor session token, required before CallWixSiteAPI / ExecuteWixAPI.
+- name: CallWixSiteAPI
+  category: platform-api
+  description: Single HTTP call against a wixapis.com endpoint on the visitor's behalf.
+- name: ExecuteWixAPI
+  category: platform-api
+  description: Runs a sandboxed JavaScript function that chains wixapis.com calls on the visitor's behalf.
+- name: BrowseWixRESTDocsMenu
+  category: docs
+  description: Navigates the Wix REST API documentation menu hierarchy.
+- name: ReadFullDocsArticle
+  category: docs
+  description: Fetches a full Wix docs or method article, including code examples.
+- name: ReadFullDocsMethodSchema
+  category: docs
+  description: Fetches the full request/response schema for a Wix API method.
+
+coverage_note: >-
+  No Speedata-authored MCP server exists. There is no OpenAPI, GraphQL SDL or other
+  contract in this repo from which a candidate tool list could be derived, so none was
+  invented. Everything above was read from a live probe of the endpoint.

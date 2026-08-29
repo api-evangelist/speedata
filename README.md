@@ -64,5 +64,20 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Speedata is a company surfaced via the API Evangelist harvest backlog (source: secondary-market) and added to the network as a stub for full-pipeline profiling.
-- https://www.hiive.com/securities/speedata-stock
+Speedata is a Tel Aviv-based semiconductor company that builds the APU (Analytics Processing Unit), a
+processor purpose-built for accelerating Apache Spark SQL, batch ETL and AI data-preparation workloads.
+The APU ships as the C200 PCIe Gen5 accelerator card powered by the Callisto ASIC, paired with a software
+layer called Dash that plugs into the Spark Catalyst optimizer and offloads compute-intensive stages to
+the card with no application code changes.
+
+Speedata publishes **no public web API, developer portal or machine-readable API contract**. Its
+programmatic surface is a Spark plugin JAR distributed under an Early Access program, plus a free
+Workload Analyzer for estimating acceleration on a customer's own Spark workloads. See `x-coverage` in
+`apis.yml` for the probes behind that finding.
+
+- Website: https://www.speedata.io/
+- GitHub: https://github.com/Speedata-io
+- Blog: https://www.speedata.io/blog
+
+> Note: `github.com/speedata` and `speedata.de` belong to a **different** company — speedata GmbH of
+> Germany, publisher of the speedata Publisher typesetting engine. Nothing there is profiled here.

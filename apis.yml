@@ -1,17 +1,35 @@
 aid: speedata
 name: Speedata
-description: 'Speedata is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+description: >-
+  Speedata is a Tel Aviv-based semiconductor company that builds the APU (Analytics Processing Unit),
+  a processor purpose-built for accelerating Apache Spark SQL, batch ETL and AI data-preparation
+  workloads rather than graphics or model training. The APU ships as the C200 PCIe Gen5 accelerator
+  card powered by the company's Callisto ASIC, paired with a software layer called Dash that plugs
+  into the Spark Catalyst optimizer and offloads compute-intensive stages to the card with no
+  application code changes. Founded in 2019 by researchers in multi-threaded coarse-grained
+  reconfigurable architecture, the company raised a $44M Series B in June 2025 (total funding ~$114M)
+  from Walden Catalyst Ventures, 83North and Koch Disruptive. Speedata publishes no public web API,
+  developer portal or machine-readable API contract; its programmatic surface is a Spark plugin JAR
+  distributed under an early-access program, plus a free browser/CLI Workload Analyzer for estimating
+  acceleration on a customer's own Spark workloads.
 url: https://raw.githubusercontent.com/api-evangelist/speedata/refs/heads/main/apis.yml
+image: https://static.wixstatic.com/media/443c60_bb2144681e7648e5b1e6d9ddb3b51102~mv2.jpeg/v1/fill/w_2500,h_1381,al_c/443c60_bb2144681e7648e5b1e6d9ddb3b51102~mv2.jpeg
 x-type: company
 x-source: harvest:secondary-market
-x-tier: stub
-x-tier-reason: harvest
 specificationVersion: '0.20'
 created: '2026-08-28'
 modified: '2026-08-28'
 tags:
 - Company
+- Semiconductors
+- Hardware Acceleration
+- Analytics
+- Big Data
+- Apache Spark
+- Data Engineering
+- Artificial Intelligence
+- Data Infrastructure
+- Israel
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -20,4 +38,53 @@ maintainers:
   email: info@apis.io
 common:
 - type: Website
-  url: https://www.hiive.com/securities/speedata-stock
+  url: https://www.speedata.io/
+- type: Blog
+  url: https://www.speedata.io/blog
+- type: PrivacyPolicy
+  url: https://www.speedata.io/privacy-policy
+- type: GitHubOrganization
+  url: https://github.com/Speedata-io
+- type: LLMsTxt
+  url: llms/speedata-llms.txt
+- type: MCPServer
+  url: mcp/speedata-mcp.yml
+- type: Packages
+  url: packages/speedata-packages.yml
+- type: Plans
+  url: plans/speedata-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/speedata-rate-limits.yml
+- type: Lifecycle
+  url: lifecycle/speedata-lifecycle.yml
+- type: Conformance
+  url: conformance/speedata-conformance.yml
+- type: DomainSecurity
+  url: security/speedata-domain-security.yml
+x-enrichment:
+  date: '2026-08-28'
+  status: minimal
+  artifacts_added: 10
+  pass: local-v1
+x-coverage:
+  state: none
+  reason: no-developer-program
+  detail: >-
+    Speedata is a fabless semiconductor company whose only programmatic surface is a Spark
+    plugin JAR (speedata-dash-0.8.1-spark_2.12.jar, com.speedata.spark.DashPlugin) handed
+    to Early Access customers — there is no api.speedata.io, no docs. or developer. host
+    (both NXDOMAIN), no /pricing or /docs route in the full Wix pages sitemap, and the only
+    live machine endpoint on the domain is the platform-authored Wix Site MCP server that
+    every Wix tenant gets by default.
+  evidence:
+  - url: https://api.speedata.io/
+    status: 0
+  - url: https://docs.speedata.io/
+    status: 0
+  - url: https://www.speedata.io/pages-sitemap.xml
+    status: 200
+  - url: https://workloadanalyzer.speedata.io/openapi.json
+    status: 404
+  - url: https://www.speedata.io/_api/mcp
+    status: 200
+  checked: '2026-08-28'

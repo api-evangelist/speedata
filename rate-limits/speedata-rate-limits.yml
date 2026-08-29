@@ -1,0 +1,22 @@
+generated: '2026-08-28'
+method: searched
+source: https://www.speedata.io/
+limit_count: 0
+note: >-
+  An honest zero. Speedata publishes no web API, so there is no rate limit to document
+  and no rate-limit response header to record. The only live HTTP surface on the domain
+  that behaves like an API is the platform-authored Wix Site MCP endpoint at
+  https://www.speedata.io/_api/mcp; its tools/list response carried no RateLimit-*,
+  X-RateLimit-* or Retry-After header, and Wix documents no limit for it on Speedata's
+  behalf. Where the product does have a throughput ceiling it is a hardware property of
+  the C200 card ("over a billion rows per second", spark.speedata.apus=1 selecting the
+  number of APUs), not an API quota — recorded in the packages and conformance artifacts
+  rather than here.
+rate_limits: []
+evidence:
+- url: https://www.speedata.io/_api/mcp
+  status: 200
+  method: POST tools/list
+  observed_headers: []
+- url: https://www.speedata.io/
+  status: 200

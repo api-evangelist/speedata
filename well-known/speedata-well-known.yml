@@ -1,0 +1,56 @@
+generated: '2026-08-28'
+method: probed
+source: https://www.speedata.io/.well-known/
+note: >-
+  Every /.well-known/ path was probed on both Speedata hosts. NOTHING was served. The Wix
+  edge that fronts www.speedata.io answers HTTP 400 with an HTML shell for any unrecognised
+  /.well-known/* path, and the S3-hosted Workload Analyzer origin answers HTTP 404
+  (NoSuchKey). No WellKnown or SecurityTxt pointer is emitted in apis.yml, because a recorded
+  absence is not a served document.
+hosts:
+- host: www.speedata.io
+  documents:
+  - path: /.well-known/security.txt
+    status: 400
+    file: null
+  - path: /.well-known/openid-configuration
+    status: 400
+    file: null
+  - path: /.well-known/oauth-authorization-server
+    status: 400
+    file: null
+  - path: /.well-known/api-catalog
+    status: 400
+    file: null
+  - path: /.well-known/ai-plugin.json
+    status: 400
+    file: null
+  - path: /.well-known/agent-card.json
+    status: 400
+    file: null
+  - path: /.well-known/agent.json
+    status: 400
+    file: null
+- host: workloadanalyzer.speedata.io
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+    file: null
+  - path: /.well-known/openid-configuration
+    status: 404
+    file: null
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    file: null
+  - path: /.well-known/api-catalog
+    status: 404
+    file: null
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    file: null
+  - path: /.well-known/agent-card.json
+    status: 404
+    file: null
+  - path: /.well-known/agent.json
+    status: 404
+    file: null

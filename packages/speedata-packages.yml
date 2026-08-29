@@ -1,0 +1,72 @@
+generated: '2026-08-28'
+method: searched
+source: https://www.speedata.io/product
+note: >-
+  Speedata publishes NO client SDK and NO package on any public registry. npm, PyPI, Maven
+  Central, RubyGems, crates.io, NuGet and pkg.go.dev were all queried and none carries a
+  first-party Speedata artifact — Maven Central returns 0 results for both g:com.speedata
+  and a free-text "speedata" query, and pypi.org/pypi/speedata/json returns 404. The npm
+  hits for "speedata" (generator-speedata, cordova-speedata-rfid-plugin,
+  @mqn/capacitor-plugin-speedata) belong to unrelated companies — the German typesetting
+  vendor speedata GmbH (speedata.de, github.com/speedata) and a Chinese handheld-terminal
+  maker — and are deliberately excluded here. No `SDKs` pointer is emitted: what Speedata
+  ships is an engine-side Spark plugin and a benchmark generator, not a client library for
+  an API.
+packages:
+- name: speedata-dash
+  artifact: speedata-dash-0.8.1-spark_2.12.jar
+  language: Scala/Java
+  registry: vendor
+  official: true
+  version: 0.8.1
+  published: null
+  scala_binary_version: '2.12'
+  install: >-
+    ${SPARK_HOME}/bin/spark-shell --jars speedata-dash-0.8.1-spark_2.12.jar
+    --conf spark.plugins=com.speedata.spark.DashPlugin --conf spark.speedata.apus=1
+  entry_point: com.speedata.spark.DashPlugin
+  source: https://www.speedata.io/product
+  note: >-
+    The Dash Spark plugin, the only first-party programmatic artifact Speedata documents.
+    Version 0.8.1 is read verbatim from the filename in the integration snippet on the
+    product page; `published` is null because the JAR is distributed directly to
+    early-access customers with no registry metadata endpoint to query — it is absent
+    from Maven Central, so a consumer cannot resolve or date it from a public coordinate.
+- name: speedata-tpc-generator
+  language: Python
+  registry: github
+  official: true
+  version: null
+  published: '2025-09-25'
+  license: MIT
+  repository: https://github.com/Speedata-io/speedata-tpc-generator
+  source: https://github.com/Speedata-io/speedata-tpc-generator
+  note: >-
+    First-party TPC benchmark data generator (config/, scripts/, templates/,
+    requirements.txt). Never tagged or released — `version` is null because the repo
+    publishes no release or version file; `published` is the last push date.
+- name: spark-image
+  language: Docker/tar
+  registry: github
+  official: true
+  version: 3.5.2
+  published: '2025-10-12'
+  repository: https://github.com/Speedata-io/spark-image
+  source: https://github.com/Speedata-io/spark-image
+  note: >-
+    A single committed tarball, spark-only-3.5.2_ehBs2025.10.08T19.01.30.tar.gz — a
+    container image of Apache Spark 3.5.2 used with the APU. Not published to any
+    container registry we could find; version read from the filename.
+excluded:
+- name: pyeda
+  repository: https://github.com/Speedata-io/pyeda
+  reason: >-
+    Fork of the upstream BSD-2 pyeda Python EDA library, not Speedata-authored software.
+- name: substrait / substrait-java
+  repository: https://github.com/Speedata-io/substrait
+  reason: Forks of the Substrait project; no Speedata-authored changes claimed.
+- name: github.com/speedata/*
+  reason: >-
+    A DIFFERENT company — speedata GmbH of Germany (speedata.de), publisher of the
+    speedata Publisher XML typesetting engine and a real SaaS API at api.speedata.de.
+    Name collision only; none of it belongs to Speedata Ltd. of Tel Aviv.

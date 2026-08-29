@@ -1,0 +1,60 @@
+generated: '2026-08-28'
+method: searched
+source: https://www.speedata.io/product
+note: >-
+  Speedata operates no API, so most lifecycle surfaces a scored provider would publish
+  simply do not exist here. What versioning discipline the company does show lives in the
+  Dash Spark plugin filename and the Spark/Scala compatibility matrix it implies.
+versioning:
+  scheme: semver
+  current_version: 0.8.1
+  artifact: speedata-dash-0.8.1-spark_2.12.jar
+  source: https://www.speedata.io/product
+  note: >-
+    Dash is pre-1.0. The JAR name pins both the plugin version (0.8.1) and the Scala
+    binary version (2.12), which is the compatibility contract a Spark operator actually
+    has to satisfy. No version policy, support window or upgrade guide is published.
+compatibility:
+  spark: Apache Spark 3.x
+  cluster_managers:
+  - Kubernetes
+  - YARN
+  - standalone
+  scala: '2.12'
+  interface: com.speedata.spark.DashPlugin (Spark plugin API, spark.plugins)
+  hardware: C200 PCIe Gen5 x16 accelerator card, Callisto ASIC
+  source: https://www.speedata.io/technology
+status_page:
+  present: false
+  url: null
+  note: >-
+    No status.speedata.io and no status page linked from any page in the sitemap. No
+    StatusPage pointer is emitted.
+deprecation_policy:
+  present: false
+  url: null
+  sunset_header: unknown
+  note: >-
+    No deprecation or sunset policy published, and no API on which RFC 8594 Sunset /
+    Deprecation headers could be observed. No Deprecation pointer is emitted.
+sla:
+  present: false
+  note: No published SLA or uptime commitment; the Early Access program states no terms.
+changelog:
+  present: false
+  news_url: https://www.speedata.io/news
+  blog_url: https://www.speedata.io/blog
+  note: >-
+    /news and /blog carry company announcements, not a dated product changelog with
+    versions, so no ChangeLog pointer is emitted.
+deprecated_operations: []
+evidence:
+- url: https://www.speedata.io/product
+  status: 200
+- url: https://www.speedata.io/technology
+  status: 200
+- url: https://www.speedata.io/news
+  status: 200
+- url: https://www.speedata.io/pages-sitemap.xml
+  status: 200
+  note: No status, changelog, or deprecation page present.
