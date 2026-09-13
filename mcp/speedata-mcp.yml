@@ -2,13 +2,10 @@ generated: '2026-08-28'
 method: probed
 source: https://www.speedata.io/_api/mcp
 name: Speedata Site MCP Server
-description: >-
-  A live, anonymous Model Context Protocol endpoint served on Speedata's own host
-  (www.speedata.io). It is the Wix Site MCP server, exposed automatically because
-  speedata.io is built on Wix — the tool set is PLATFORM-AUTHORED by Wix, not written
-  by Speedata, and it exposes site content and Wix business-solution APIs rather than
-  anything to do with the APU, the C200 card, or the Dash Spark plugin.
-
+description: A live, anonymous Model Context Protocol endpoint served on Speedata's own host (www.speedata.io).
+  It is the Wix Site MCP server, exposed automatically because speedata.io is built on Wix — the tool
+  set is PLATFORM-AUTHORED by Wix, not written by Speedata, and it exposes site content and Wix business-solution
+  APIs rather than anything to do with the APU, the C200 card, or the Dash Spark plugin.
 deployment:
   mode: remote
   endpoint: https://www.speedata.io/_api/mcp
@@ -16,22 +13,24 @@ deployment:
   package: ''
   auth: none
   verified: probed
-
+  probe_prior: (never probed)
+  probe: live
+  probe_why: live
+  checked: '2026-09-11'
+  source: claimed-backlog re-probe 2026-09-11
 authorship: platform
 platform: Wix Site MCP
-authorship_note: >-
-  The nine tools below are byte-identical to the Wix tenant fingerprint documented in the
-  API Evangelist MCP authorship audit. Speedata authored none of them; enabling the site
-  MCP is a Wix platform default. Recorded because the endpoint is genuinely reachable on
-  the provider's own domain, not because Speedata shipped an agent surface.
-
+authorship_note: The nine tools below are byte-identical to the Wix tenant fingerprint documented in the
+  API Evangelist MCP authorship audit. Speedata authored none of them; enabling the site MCP is a Wix
+  platform default. Recorded because the endpoint is genuinely reachable on the provider's own domain,
+  not because Speedata shipped an agent surface.
 x-evidence:
   fetched: '2026-08-28'
   initialize:
     url: https://www.speedata.io/_api/mcp
     http_status: 200
     protocol_version: '2025-06-18'
-    server_info: 'Site Visitor Assistant for site "Speedata" (https://www.speedata.io/_api/mcp)'
+    server_info: Site Visitor Assistant for site "Speedata" (https://www.speedata.io/_api/mcp)
     capabilities:
       tools:
         listChanged: true
@@ -46,10 +45,8 @@ x-evidence:
     url: https://www.speedata.io/llms.txt
     http_status: 200
     note: The llms.txt "AI Agent Access" section names this endpoint and the Wix MCP docs.
-
 transport: streamable-http
 status: live
-
 tools:
 - name: GetBusinessDetails
   category: site-metadata
@@ -78,8 +75,6 @@ tools:
 - name: ReadFullDocsMethodSchema
   category: docs
   description: Fetches the full request/response schema for a Wix API method.
-
-coverage_note: >-
-  No Speedata-authored MCP server exists. There is no OpenAPI, GraphQL SDL or other
-  contract in this repo from which a candidate tool list could be derived, so none was
-  invented. Everything above was read from a live probe of the endpoint.
+coverage_note: No Speedata-authored MCP server exists. There is no OpenAPI, GraphQL SDL or other contract
+  in this repo from which a candidate tool list could be derived, so none was invented. Everything above
+  was read from a live probe of the endpoint.
